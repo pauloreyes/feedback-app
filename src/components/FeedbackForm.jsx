@@ -5,7 +5,7 @@ import RatingSelect from './shared/RatingSelect';
 import FeedbackContext from '../contexts/FeedbackContexts';
 
 export default function FeedbackForm() {
-	const { feedback, handleAdd, feedbackEdit, updateFeedback, setFeedbackEdit } =
+	const { feedback, handleAdd, feedbackEdit, updateFeedback, setFeedbackEdit, setSelected } =
 		useContext(FeedbackContext);
 	const [text, setText] = useState('');
 	const [btnDisabled, setBtnDisabled] = useState(true);
@@ -51,6 +51,7 @@ export default function FeedbackForm() {
 				handleAdd(newFeedback);
 				setText('');
 				setRating(10);
+				setSelected(10);
 			}
 		}
 	}

@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import FeedbackContext from '../../contexts/FeedbackContexts';
 
 export default function RatingSelect({ select }) {
-	const { feedbackEdit } = useContext(FeedbackContext);
-	const [selected, setSelected] = useState(10);
+	const { feedbackEdit, selected, setSelected } = useContext(FeedbackContext);
+
 	const handleChange = (e) => {
 		setSelected(+e.currentTarget.value);
 		select(+e.currentTarget.value);
@@ -14,7 +14,7 @@ export default function RatingSelect({ select }) {
 			setSelected(feedbackEdit.item.rating);
 		} else {
 			setSelected(10);
-		}
+		} // eslint-disable-next-line
 	}, [feedbackEdit]);
 
 	return (
